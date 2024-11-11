@@ -1,0 +1,16 @@
+steps:
+  - name: Create and run a container
+    run: |
+      docker run -it ubuntu:22.04 bash
+
+  - name: Build Docker Image
+    run: |
+      docker build -t custom_opam_image .
+
+  - name: Save Docker Image as TAR
+    run: |
+      docker save -o custom_opam_image.tar custom_opam_image
+
+  - name: List Docker Images
+    run: |
+      docker image ls
